@@ -5,6 +5,76 @@ var projectList = [
             'Previously Free Raptor',
 ]
 
+// ************** Money saved *************
+
+
+var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var spotConfig = {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Development',
+            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.red,
+            data: [
+                10000,
+                20000,
+                35000,
+                35000,
+                35000,
+                37000,
+                37000,
+            ],
+            fill: false,
+        }, {
+            label: 'Test',
+            fill: false,
+            backgroundColor: window.chartColors.blue,
+            borderColor: window.chartColors.blue,
+            data: [
+                10000,
+                30000,
+                35000,
+                45000,
+                45000,
+                47000,
+                47000,
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Money Saved Running on Spot Instances'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Money Saved'
+                }
+            }]
+        }
+    }
+};
 
 // **************** doughnut chart ****************
 
@@ -169,7 +239,9 @@ console.log(barChartData)
 
 window.onload = function() {
 
-
+    var ctx = document.getElementById('spot').getContext('2d');
+    window.myLine = new Chart(ctx, spotConfig);
+    
     var ctx = document.getElementById('doughnut').getContext('2d');
     window.myDoughnut = new Chart(ctx, config);
 
