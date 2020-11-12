@@ -1,8 +1,8 @@
 var projectList = [
-            'Muppet Detection',
-            'Cheese Classification',
-            'Mentally Supreme Turkey',
-            'Previously Free Raptor',
+            'Neil Language Processing',
+            'Ameet Classification',
+            'Evan-t Detection',
+            'Determined Neural Network',
 ]
 
 // ************** On premise vs Cloud *************
@@ -163,22 +163,19 @@ var config = {
                 randomScalingFactorDoughtnut(),
                 randomScalingFactorDoughtnut(),
                 randomScalingFactorDoughtnut(),
-                randomScalingFactorDoughtnut(),
             ],
             backgroundColor: [
                 window.chartColors.red,
-                "#FF9800",
                 window.chartColors.yellow,
                 window.chartColors.green,
-                window.chartColors.blue,
+                window.chartColors.white,
             ],
             label: 'Dataset 1'
         }],
         labels: [
-            'Muppet Detection',
-            'Cheese Classification',
-            'Mentally Supreme Turkey',
-            'Previously Free Raptor',
+            'Neil Language Processing',
+            'Evan-t Detection',
+            'Determined Neural Network',
             'Unused'
         ]
     },
@@ -206,18 +203,19 @@ var config2 = {
                 randomScalingFactorDoughtnut(),
                 randomScalingFactorDoughtnut(),
                 randomScalingFactorDoughtnut(),
-                randomScalingFactorDoughtnut(),
-                randomScalingFactorDoughtnut(),
             ],
             backgroundColor: [
                 window.chartColors.red,
                 "#FF9800",
                 window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
             ],
             label: 'Dataset 1'
         }],
+        labels: [
+            'Neil Language Processing',
+            'Ameet Classification',
+            'Evan-t Detection',
+        ]
     },
     options: {
         responsive: true,
@@ -226,7 +224,7 @@ var config2 = {
         },
         title: {
             display: true,
-            text: 'On-premise Cluster Utilization per Project '
+            text: 'Cloud Cluster Utilization per Project '
         },
         animation: {
             animateScale: true,
