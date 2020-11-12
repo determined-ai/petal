@@ -5,6 +5,78 @@ var projectList = [
             'Previously Free Raptor',
 ]
 
+// ************** On premise vs Cloud *************
+
+
+var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var cloudConfig = {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'On-Premise',
+            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.red,
+            data: [
+                100,
+                250,
+                1200,
+                1700,
+                1800,
+                1900,
+                2100,
+            ],
+            fill: false,
+        }, {
+            label: 'Cloud',
+            fill: false,
+            backgroundColor: window.chartColors.blue,
+            borderColor: window.chartColors.blue,
+            data: [
+                2000,
+                1950,
+                1100,
+                1000,
+                930,
+                300,
+                100,
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Hours Used'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Hours'
+                }
+            }]
+        }
+    }
+};
+
+
 // ************** Money saved *************
 
 
@@ -95,7 +167,7 @@ var config = {
             ],
             backgroundColor: [
                 window.chartColors.red,
-                window.chartColors.orange,
+                "#FF9800",
                 window.chartColors.yellow,
                 window.chartColors.green,
                 window.chartColors.blue,
@@ -139,7 +211,7 @@ var config2 = {
             ],
             backgroundColor: [
                 window.chartColors.red,
-                window.chartColors.orange,
+                "#FF9800",
                 window.chartColors.yellow,
                 window.chartColors.green,
                 window.chartColors.blue,
@@ -172,7 +244,7 @@ var costPerProjectData = {
         label: 'USD',
         backgroundColor: [
                 window.chartColors.red,
-                window.chartColors.orange,
+                "#FF9800",
                 window.chartColors.yellow,
                 window.chartColors.green,
                 window.chartColors.blue,
@@ -241,6 +313,9 @@ window.onload = function() {
 
     var ctx = document.getElementById('spot').getContext('2d');
     window.myLine = new Chart(ctx, spotConfig);
+    
+    var ctx = document.getElementById('cloud').getContext('2d');
+    window.myLine = new Chart(ctx, cloudConfig);
     
     var ctx = document.getElementById('doughnut').getContext('2d');
     window.myDoughnut = new Chart(ctx, config);
